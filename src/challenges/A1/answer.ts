@@ -7,11 +7,30 @@
  */
 
 // ↓ uncomment bellow lines and add your response!
-/*
+
+/** 
 export default function ({ students }: { students: Student[] }): Student[] {
-    return [];
+    students.sort( (a, b) => a.name.localeCompare(b.name))
+
+    return students.sort((a, b) => (a.age - b.age) );
+}**/
+
+/** 
+export default function ({ students }: { students: Student[] }): Student[] {
+    students.sort( (a, b) => {
+        if(a.age === b.age) {
+            return  a.name.localeCompare(b.name)
+        } else {
+            return a.age - b.age
+        }
+    }
+   )
+
+    return students.sort((a, b) => (a.age - b.age) );
 }
 */
+
+
 
 // used interfaces, do not touch
 export interface Student {

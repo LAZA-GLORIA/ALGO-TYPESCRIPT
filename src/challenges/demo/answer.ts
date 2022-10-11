@@ -8,9 +8,8 @@
 // ↓ uncomment bellow lines and add your response!
 /*
 export default function ({ topics }: { topics: Topic[] }): Topic[] {
-    return [];
-}
-*/
+    return topics.sort((a, b) => a.upvotes - b.upvotes);
+}**/
 
 // used interfaces, do not touch
 export interface Topic {

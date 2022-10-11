@@ -11,9 +11,22 @@
 // ↓ uncomment bellow lines and add your response!
 /*
 export default function ({ groups }: { groups: Group[] }): GroupWithSills[] {
-    return [];
-}
-*/
+    return groups.map( (g) => {
+        const arraySkills: string[] = [];
+
+        for (const student of g.students)  {
+            for (const skill of student.skills)  {
+                if (!arraySkills.includes(skill)) {
+                    arraySkills.push(skill);
+                }
+            }
+        }
+       
+
+        return { ...g, skills: arraySkills.sort()}
+    })
+}*/
+
 
 // used interfaces, do not touch
 interface Student {

@@ -6,12 +6,21 @@
  * @returns All existing categories sorted alphabatically without duplicates (A to Z)
  */
 
-// ↓ uncomment bellow lines and add your response!
-/*
+import { getEnabledCategories } from "trace_events";
+
+// ↓ uncomment bellow lines and add your re
 export default function ({ events }: { events: EventWithCategory[] }): string[] {
-    return [];
+    const arrayCategories: string[]= [];
+     events.forEach((e) => {
+            for (const categories of e.categories) {
+                if (!arrayCategories.includes(categories)) {
+                arrayCategories.push(categories);
+            }     
+        }
+    })
+    return arrayCategories.sort()
 }
-*/
+
 
 // used interfaces, do not touch
 export interface EventWithCategory {
