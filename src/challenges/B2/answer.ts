@@ -9,17 +9,17 @@
 import { getEnabledCategories } from "trace_events";
 
 // ↓ uncomment bellow lines and add your re
-export default function ({ events }: { events: EventWithCategory[] }): string[] {
-    const arrayCategories: string[]= [];
-     events.forEach((e) => {
-            for (const categories of e.categories) {
-                if (!arrayCategories.includes(categories)) {
-                arrayCategories.push(categories);
-            }     
-        }
-    })
-    return arrayCategories.sort()
-}
+// export default function ({ events }: { events: EventWithCategory[] }): string[] {
+//     const arrayCategories: string[]= [];
+//      events.forEach((e) => {
+//             for (const categories of e.categories) {
+//                 if (!arrayCategories.includes(categories)) {
+//                 arrayCategories.push(categories);
+//             }     
+//         }
+//     })
+//     return arrayCategories.sort()
+// }
 
 
 // used interfaces, do not touch
