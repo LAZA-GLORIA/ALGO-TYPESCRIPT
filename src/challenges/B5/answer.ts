@@ -31,11 +31,59 @@
  */
 
 // ↓ uncomment bellow lines and add your response!
-/*
-export default function ({ video }: { video: VideoWithNotes }): VideoSegment[] {
-    return [];
-}
-*/
+// export default function ({ video }: { video: VideoWithNotes }): VideoSegment[] {
+//     const segments: VideoSegment[] = [];
+  
+//     // Début de la vidéo
+//     let previousEndTime = "00:00:00";
+  
+//     // Tri des notes par temps de début croissant
+//     const sortedNotes = [...video.notes].sort(
+//       (a, b) => timeToSeconds(a.fromTime) - timeToSeconds(b.fromTime)
+//     );
+  
+//     // Parcours des notes triées et création des segments correspondants
+//     for (const note of sortedNotes) {
+//       const { fromTime, toTime, note: noteText } = note;
+//       const fromTimeInSeconds = timeToSeconds(fromTime);
+//       const toTimeInSeconds = timeToSeconds(toTime);
+  
+//       // Ajout du segment précédant la note
+//       if (fromTimeInSeconds > timeToSeconds(previousEndTime)) {
+//         segments.push({
+//           fromTime: previousEndTime,
+//           toTime: fromTime,
+//         });
+//       }
+  
+//       // Ajout du segment correspondant à la note
+//       segments.push({
+//         fromTime,
+//         toTime,
+//         note: noteText,
+//       });
+  
+//       // Mise à jour de previousEndTime
+//       previousEndTime = toTime;
+//     }
+  
+//     // Ajout du segment final s'il reste de la vidéo
+//     if (timeToSeconds(previousEndTime) < timeToSeconds(video.videoDuration)) {
+//       segments.push({
+//         fromTime: previousEndTime,
+//         toTime: video.videoDuration,
+//       });
+//     }
+  
+//     return segments;
+//   }
+  
+//   // Fonction utilitaire qui convertit une durée au format HH:mm:ss en secondes
+//   function timeToSeconds(time: string): number {
+//     const [hours, minutes, seconds] = time.split(":").map(Number);
+//     return hours * 3600 + minutes * 60 + seconds;
+//   }
+  
 
 // used interfaces, do not touch
 export interface VideoWithNotes {

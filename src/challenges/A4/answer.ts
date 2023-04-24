@@ -27,11 +27,63 @@
  */
 
 // ↓ uncomment bellow lines and add your response!
-/*
-export default function ({ messages }: { messages: Message[] }): DayMessages[] {
-    return [];
-}
-*/
+
+// export default function ({ messages }: { messages: Message[] }): DayMessages[] {
+//     const messagesByDay = messages.reduce((acc, curr) => {
+//       const dayOfMessage = new Date(
+//         new Date(curr.sentAt).setUTCHours(0, 0, 0, 0)
+//       ).toISOString();
+//       return { ...acc, [dayOfMessage]: [...(acc[dayOfMessage] || []), curr] };
+//     }, {});
+  
+//     return Object.keys(messagesByDay)
+//       .sort()
+//       .map((day) => {
+//         return {
+//           day,
+//           messages: messagesByDay[day].sort((a, b) =>
+//             a.sentAt > b.sentAt ? 1 : -1
+//           ),
+//         };
+//       });
+//   }
+
+// export default function ({ messages }: { messages: Message[] }): DayMessages[] {
+//     let result: DayMessages[] = []
+  
+//     for (let i = 0; i < messages.length; i++) {
+//       const datePrefix: string = messages[i].sentAt.substring(0, 10)
+//       let dateAlreadyTreated: boolean = false
+  
+//       for (let k = 0; k < result.length; k++) {
+//         if (result[k].day.includes(datePrefix)) dateAlreadyTreated = true
+//       }
+  
+//       if (!dateAlreadyTreated) {
+//         const globalDate: string = datePrefix + 'T00:00:00.000Z'
+//         const messagesGroupedByDay: DayMessages = {
+//           day: globalDate,
+//           messages: [],
+//         }
+//         const todaysMessages: Message[] = []
+  
+//         for (let j = 0; j < messages.length; j++) {
+//           if (messages[j].sentAt.includes(datePrefix))
+//             todaysMessages.push(messages[j])
+//         }
+  
+//         todaysMessages.sort((a: Message, b: Message) =>
+//           a.sentAt.localeCompare(b.sentAt),
+//         )
+//         messagesGroupedByDay.messages = todaysMessages
+//         result.push(messagesGroupedByDay)
+//       }
+  
+//       result.sort((a: DayMessages, b: DayMessages) => a.day.localeCompare(b.day))
+//     }
+  
+//     return result
+//   }
 
 // used interfaces, do not touch
 export interface Message {
